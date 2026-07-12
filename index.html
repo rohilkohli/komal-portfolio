@@ -224,6 +224,13 @@
               <h4>Diljit Dosanjh</h4>
             </div>
           </div>
+          <div class="cg-card" data-index="8">
+            <video src="images/keerat-hoshiar.mp4" playsinline loop></video>
+            <div class="cg-card-label">
+              <span class="cg-card-tag">Music Video Art</span>
+              <h4>Keerat &amp; Hoshiar</h4>
+            </div>
+          </div>
         </div>
       </div>
       <p class="cg-hint"
@@ -376,7 +383,120 @@
       </script>
     </div>
   </section>
+  <!-- ═══════════════ EXPAND CARDS SHOWCASE ═══════════════ -->
+  <section class="expand-showcase" id="expandShowcase">
+    <div class="container">
+      <div class="expand-header reveal">
+        <span class="section-label">Gallery Spotlight</span>
+        <h2 class="section-heading">Hover to <em>explore</em></h2>
+        <p>Glide over each piece to reveal the full artwork — from music video art to cinematic portraits.</p>
+      </div>
+    </div>
+    <div class="expand-cards-container reveal reveal-delay-1">
+      <div class="expand-cards" id="expandCards">
+        <div class="expand-card active" data-index="1">
+          <img src="images/diljit-lightning.jpg" alt="Diljit Dosanjh — Lightning">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Artist Artwork</span>
+            <h4>Diljit Dosanjh</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="2">
+          <img src="images/diljit-singing.jpg" alt="Diljit Dosanjh — Singing">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Portrait</span>
+            <h4>Diljit — Live</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="3">
+          <img src="images/nimrat-portrait.jpg" alt="Nimrat Khaira — Portrait">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Collaboration</span>
+            <h4>Nimrat Khaira</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="4">
+          <img src="images/divine-journey.jpg" alt="The Divine Journey">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Devotional</span>
+            <h4>The Divine Journey</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="5">
+          <img src="images/bollywood-collage.jpg" alt="Cinema Collage">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Fine Art</span>
+            <h4>Cinema Collage</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="6">
+          <img src="images/aura-world-tour.jpg" alt="Aura World Tour">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Tour Artwork</span>
+            <h4>Aura World Tour</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="7">
+          <img src="images/diljit-aura.jpg" alt="Diljit — Aura Portrait">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Portraits</span>
+            <h4>Diljit — Aura</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="8">
+          <img src="images/sunflowers-balcony.jpg" alt="For a Reason — Karan Aujla">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Music Art</span>
+            <h4>For a Reason</h4>
+          </div>
+        </div>
+        <div class="expand-card" data-index="9">
+          <img src="images/ray-of-hope.jpg" alt="Ray of Hope">
+          <div class="expand-card-glow"></div>
+          <div class="expand-card-border-glow"></div>
+          <div class="expand-card-overlay">
+            <span class="expand-card-tag">Traditional Art</span>
+            <h4>Ray of Hope</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <script>
+  (function() {
+    const container = document.getElementById('expandCards');
+    if (!container) return;
+    const cards = container.querySelectorAll('.expand-card');
+
+    // Touch/mobile fallback: click to expand
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+        });
+      });
+    }
+  })();
+  </script>
   <!-- ═══════════════ COLLABORATIONS ═══════════════ -->
   <section class="collaborations" id="collaborations">
     <div class="container">
