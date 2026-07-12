@@ -2055,8 +2055,11 @@ section+section::before {
   object-fit: cover;
   opacity: 0.8;
   filter: brightness(0.35) saturate(0.8);
-  transform: scale(1.05);
+  transform: scale(1.05) translateZ(0);
   transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Premium Lighting Effects */
@@ -2089,8 +2092,6 @@ section+section::before {
   right: 0;
   padding: 40px 24px 24px;
   background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 50%, transparent 100%);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2145,7 +2146,7 @@ section+section::before {
 .expand-cards .expand-card:hover img,
 .expand-card.active img {
   filter: brightness(1) saturate(1);
-  transform: scale(1);
+  transform: scale(1) translateZ(0);
   opacity: 1;
 }
 
