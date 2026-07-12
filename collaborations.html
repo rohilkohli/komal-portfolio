@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborations &amp; Appreciation — Komal Panesar</title>
+  <meta name="description"
+    content="Collaborations, client appreciation, and project showcases by visual designer and illustrator Komal Panesar.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Custom styles for collaborations detail page */
+    .collab-detail-hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      background: radial-gradient(circle at 50% 20%, rgba(200, 169, 110, 0.04) 0%, transparent 60%),
+        #0A0A0A;
+      text-align: center;
+    }
+
+    .collab-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 80px;
+      padding-bottom: 120px;
+    }
+
+    .collab-detail-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .collab-detail-row:nth-child(even) {
+      grid-template-columns: 1fr 1.2fr;
+    }
+
+    .collab-detail-row:nth-child(even) .collab-detail-info {
+      order: 2;
+    }
+
+    .collab-detail-info {
+      padding-top: 20px;
+    }
+
+    .collab-detail-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .collab-detail-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .collab-detail-text {
+      color: #9A9390;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .collab-detail-embed {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(200, 169, 110, 0.15);
+      background: rgba(255, 255, 255, 0.01);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .collab-quote-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(200, 169, 110, 0.12);
+      border-radius: 8px;
+      padding: 40px;
+      position: relative;
+    }
+
+    .collab-quote-card::before {
+      content: '“';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-family: var(--font-display);
+      font-size: 6rem;
+      color: rgba(200, 169, 110, 0.1);
+      line-height: 1;
+    }
+
+    .collab-quote-text {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: #E8D5B0;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .collab-quote-author {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    @media (max-width: 992px) {
+
+      .collab-detail-row,
+      .collab-detail-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .collab-detail-row:nth-child(even) .collab-detail-info {
+        order: unset;
+      }
+    }
+
+    /* Blended & Faded Watermark Portrait Styles */
+    .collab-detail-info {
+      position: relative;
+      padding-top: 20px;
+    }
+
+    .collab-detail-info>span,
+    .collab-detail-info>h2,
+    .collab-detail-info>p,
+    .collab-detail-info>.collab-quote-card {
+      position: relative;
+      z-index: 2;
+    }
+
+    .collab-bg-portrait {
+      position: absolute;
+      inset: -30px -40px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.08;
+      /* low watermark opacity */
+      mix-blend-mode: luminosity;
+      filter: contrast(1.1) brightness(0.65) blur(1px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .collab-bg-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .collab-bg-portrait::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 40% 50%, transparent 15%, #0A0A0A 80%);
+      pointer-events: none;
+    }
+
+    .collab-detail-info:hover .collab-bg-portrait {
+      opacity: 0.16;
+      filter: contrast(1.15) brightness(0.7) blur(0px);
+    }
+  </style>
+</head>
+
+<body style="opacity: 1;">
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Film Grain Overlay -->
+  <div class="grain"></div>
+
+  <!-- ═══════════════ NAVIGATION ═══════════════ -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#hero" class="nav-logo">Komal<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Work</a></li>
+        <li><a href="index.html#collaborations" class="nav-link">Collabs</a></li>
+        <li><a href="index.html#latest-work" class="nav-link">Latest</a></li>
+        <li><a href="index.html#contact" class="nav-link">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <header class="collab-detail-hero">
+    <div class="container">
+      <span class="section-label" style="justify-content: center;">Case Studies &amp; Feedback</span>
+      <h1 class="contact-heading" style="margin-top: 10px;">Collaborations &amp; Appreciation<span
+          class="gold-dot">.</span></h1>
+      <p class="contact-subtitle">
+        A deeper look at artwork crafted in partnership with music artists, filmmakers, and creative brands.
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══════════════ DETAILS ═══════════════ -->
+  <main class="container">
+    <div class="collab-detail-grid">
+
+      <!-- Nimrat Khaira -->
+      <section class="collab-detail-row reveal visible">
+        <div class="collab-detail-info">
+          <div class="collab-bg-portrait">
+            <img src="images/collab-nimrat.jpg" alt="">
+          </div>
+          <span class="collab-detail-tag">Artist Collaboration</span>
+          <h2 class="collab-detail-title">Nimrat Khaira</h2>
+          <p class="collab-detail-text">
+            A vibrant artistic partnership with one of Punjabi music's most celebrated voices. The goal was to craft a
+            visual companion to her music that captures the warmth, cultural lineage, and modern spirit of her
+            storytelling. Every layer is built with rich textures and delicate gold highlights.
+          </p>
+          <div class="collab-quote-card">
+            <p class="collab-quote-text">Working with Komal is always an inspiring experience. She takes the mood of the
+              music and transforms it into visual poetry.</p>
+            <div class="collab-quote-author">Nimrat Khaira — Music Artist</div>
+          </div>
+        </div>
+        <div class="collab-detail-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/DTfbzWckQxb/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style=" background:#0D0D0D; border:0; border-radius:3px; box-shadow:none; margin: 0; max-width:100%; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/DTfbzWckQxb/?utm_source=ig_embed&amp;utm_campaign=loading"
+                style=" background:#0D0D0D; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%; color:#C8A96E;"
+                target="_blank">View this post on Instagram</a>
+            </div>
+          </blockquote>
+        </div>
+      </section>
+
+      <div class="contact-divider" style="margin: 20px auto;"></div>
+
+      <!-- Imtiaz Ali -->
+      <section class="collab-detail-row reveal visible">
+        <div class="collab-detail-info">
+          <div class="collab-bg-portrait">
+            <img src="images/collab-imtiaz.jpg" alt="">
+          </div>
+          <span class="collab-detail-tag">Featured Collaboration</span>
+          <h2 class="collab-detail-title">Imtiaz Ali</h2>
+          <p class="collab-detail-text">
+            Official artwork created in collaboration with the renowned filmmaker. This project merged cinematic
+            storytelling with digital and traditional compositions, translating the nostalgic, emotional journey of his
+            cinema onto paper.
+          </p>
+          <div class="collab-quote-card">
+            <p class="collab-quote-text">Komal has a rare ability to paint the soul of a narrative. Her composition
+              matches the cinematic weight of the film.</p>
+            <div class="collab-quote-author">Imtiaz Ali — Filmmaker</div>
+          </div>
+        </div>
+        <div class="collab-detail-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/DK4n87phaBc/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style=" background:#0D0D0D; border:0; border-radius:3px; box-shadow:none; margin: 0; max-width:100%; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/DK4n87phaBc/?utm_source=ig_embed&amp;utm_campaign=loading"
+                style=" background:#0D0D0D; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%; color:#C8A96E;"
+                target="_blank">View this post on Instagram</a>
+            </div>
+          </blockquote>
+        </div>
+      </section>
+
+      <div class="contact-divider" style="margin: 20px auto;"></div>
+
+      <!-- Team Diljit -->
+      <section class="collab-detail-row reveal visible">
+        <div class="collab-detail-info">
+          <div class="collab-bg-portrait">
+            <img src="images/collab-diljit.jpg" alt="">
+          </div>
+          <span class="collab-detail-tag">Artist Artwork</span>
+          <h2 class="collab-detail-title">Team Diljit</h2>
+          <p class="collab-detail-text">
+            Cinematic compositions created for Diljit Dosanjh. Bold, iconic design language matching the global appeal
+            and energy of the superstar, while staying deeply rooted in Punjabi culture.
+          </p>
+          <div class="collab-quote-card">
+            <p class="collab-quote-text">Every visual piece starts from scratch, built with pure intention and cultural
+              weight.</p>
+            <div class="collab-quote-author">Team Diljit</div>
+          </div>
+        </div>
+        <div class="collab-detail-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/C-HY4chSWw1/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style=" background:#0D0D0D; border:0; border-radius:3px; box-shadow:none; margin: 0; max-width:100%; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/C-HY4chSWw1/?utm_source=ig_embed&amp;utm_campaign=loading"
+                style=" background:#0D0D0D; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%; color:#C8A96E;"
+                target="_blank">View this post on Instagram</a>
+            </div>
+          </blockquote>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">© 2026 Komal Panesar. Crafted with <span>♥</span> and way too much chai.</p>
+        <a href="index.html#hero" class="footer-back-top">
+          Back to Home
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+</body>
+
+</html>
