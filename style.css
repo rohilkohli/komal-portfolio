@@ -2081,32 +2081,6 @@ section+section::before {
   pointer-events: none;
 }
 
-/* Numbering on top-left */
-.expand-card::before {
-  content: attr(data-index);
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 169, 110, 0.3);
-  color: var(--gold);
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  z-index: 10;
-}
-
 /* Overlay and Text */
 .expand-card-overlay {
   position: absolute;
@@ -2182,12 +2156,6 @@ section+section::before {
   opacity: 1;
 }
 
-.expand-cards .expand-card:hover::before,
-.expand-card.active::before {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .expand-cards .expand-card:hover .expand-card-overlay,
 .expand-card.active .expand-card-overlay {
   opacity: 1;
@@ -2210,10 +2178,6 @@ section+section::before {
   
   .expand-card {
     transition: flex 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  
-  .expand-card::before {
-    display: none; /* Hide numbers on mobile for space */
   }
 
   .expand-card-overlay {
