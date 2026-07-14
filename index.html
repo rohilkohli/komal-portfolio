@@ -13,11 +13,17 @@
   <meta property="og:title" content="Komal Panesar — Visual Designer & Illustrator">
   <meta property="og:description" content="Bold visuals. Warm stories. Unforgettable design.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="images/art-overyou-logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="images/art-overyou-logo.jpg">
+  <link rel="icon" href="images/art-overyou-logo.jpg">
+  <link rel="apple-touch-icon" href="images/art-overyou-logo.jpg">
   <meta name="theme-color" content="#0A0A0A">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
 
   <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
@@ -29,11 +35,9 @@
   <!-- ═══════════════ NAVIGATION ═══════════════ -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <div class="nav-brand" style="display: flex; flex-direction: column;">
-        <a href="#hero" class="nav-logo" style="line-height: 1.1;">Komal Panesar<span>.</span></a>
-        <a href="https://www.instagram.com/art_overyou" target="_blank" rel="noopener" class="nav-handle"
-          style="font-size: 0.75rem; color: var(--gold); text-decoration: none; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.3s ease;"
-          onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">@art_overyou</a>
+      <div class="nav-brand">
+        <a href="#hero" class="nav-logo">Komal Panesar<span>.</span></a>
+        <a href="https://www.instagram.com/art_overyou" target="_blank" rel="noopener" class="nav-handle">@art_overyou</a>
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" class="nav-link">About</a></li>
@@ -43,7 +47,7 @@
         <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#contact" class="nav-link">Say Hello</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -70,9 +74,8 @@
         </a>
         <a href="#contact" class="btn-outline">Let's Talk</a>
       </div>
-      <div style="margin-top: 60px; text-align: left; animation: fadeInUp 1s ease 1s forwards; opacity: 0;">
-        <img src="images/art-overyou-logo.jpg" alt="Art OverYou by K.Panesar" class="footer-logo"
-          style="max-width: 140px; margin: 0; filter: invert(100%) sepia(100%) saturate(350%) hue-rotate(345deg) brightness(85%) contrast(120%); mix-blend-mode: screen;">
+      <div class="hero-logo-wrap">
+        <img src="images/art-overyou-logo.jpg" alt="Art OverYou by K.Panesar" class="footer-logo hero-logo" width="140" height="140" decoding="async">
       </div>
     </div>
     <div class="hero-scroll-indicator">
@@ -82,12 +85,13 @@
   </section>
 
   <!-- ═══════════════ ABOUT ═══════════════ -->
+  <main id="mainContent">
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
         <div class="about-visual reveal">
           <div class="about-image-wrap">
-            <img src="images/komal-logo.jpg" alt="Komal Panesar — Visual Designer">
+            <img decoding="async" src="images/komal-logo.jpg" alt="Komal Panesar — Visual Designer">
             <div class="about-image-frame"></div>
           </div>
           <div class="about-stats">
@@ -154,78 +158,73 @@
       </div>
 
       <!-- ── Featured Project Card ── -->
-      <div class="featured-project reveal reveal-delay-1"
-        style="margin-bottom: 48px; background: #161616; border-left: 4px solid #C8A96E; padding: 40px 44px; border-radius: 4px;">
-        <span class="section-label" style="margin-bottom: 12px; display: block;">Featured Series</span>
-        <h3
-          style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: #F0ECE4; margin-bottom: 16px; line-height: 1.2;">
-          Safar-e-Shahadat</h3>
-        <p style="color: #A8A29E; font-size: 1.05rem; line-height: 1.7; max-width: 680px;">A 30-day illustrated series
-          documenting the journey of Sikh Sahibzaade — one artwork per day through December. History told through art.
-        </p>
+      <div class="featured-project reveal reveal-delay-1">
+        <span class="section-label featured-project-label">Featured Series</span>
+        <h3>Safar-e-Shahadat</h3>
+        <p>A 30-day illustrated series documenting the journey of Sikh Sahibzaade — one artwork per day through December. History told through art.</p>
       </div>
 
       <!-- ── Circular 3D Gallery ── -->
-      <div class="circular-gallery reveal reveal-delay-2" id="circularGallery">
+      <div class="circular-gallery reveal reveal-delay-2" id="circularGallery" tabindex="0" aria-label="Rotating portfolio gallery">
         <div class="cg-scene" id="cgScene">
-          <div class="cg-card" data-index="0">
-            <video src="images/sheeshe-wangu.mp4" playsinline loop muted></video>
+          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="0">
+            <video src="images/sheeshe-wangu.mp4" playsinline loop muted preload="metadata"></video>
             <div class="cg-card-label">
               <span class="cg-card-tag">Music Video Art</span>
               <h4>Sheeshe Wangu</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="1">
-            <img src="images/divine-journey.jpg" alt="The Divine Journey">
+          <div class="cg-card" tabindex="0" role="button" data-category="devotional-historical" data-index="1">
+            <img loading="lazy" decoding="async" src="images/divine-journey.jpg" alt="The Divine Journey">
             <div class="cg-card-label">
               <span class="cg-card-tag">Devotional &amp; Historical</span>
               <h4>The Divine Journey</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="2">
-            <img src="images/bollywood-collage.jpg" alt="Cinema Collage">
+          <div class="cg-card" tabindex="0" role="button" data-category="traditional-art" data-index="2">
+            <img loading="lazy" decoding="async" src="images/bollywood-collage.jpg" alt="Cinema Collage">
             <div class="cg-card-label">
               <span class="cg-card-tag">Fine Art</span>
               <h4>Cinema Collage</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="3">
-            <img src="images/ray-of-hope.jpg" alt="Ray of Hope">
+          <div class="cg-card" tabindex="0" role="button" data-category="traditional-art" data-index="3">
+            <img loading="lazy" decoding="async" src="images/ray-of-hope.jpg" alt="Ray of Hope">
             <div class="cg-card-label">
               <span class="cg-card-tag">Traditional Art</span>
               <h4>Ray of Hope</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="4">
-            <img src="images/space-traveler.jpg" alt="Space Traveler">
+          <div class="cg-card" tabindex="0" role="button" data-category="book-illustration" data-index="4">
+            <img loading="lazy" decoding="async" src="images/space-traveler.jpg" alt="Space Traveler">
             <div class="cg-card-label">
               <span class="cg-card-tag">Illustration</span>
               <h4>Space Traveler</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="5">
-            <img src="images/sunflowers-balcony.jpg" alt="For a Reason ft. Karan Aujla & Tania">
+          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="5">
+            <img loading="lazy" decoding="async" src="images/sunflowers-balcony.jpg" alt="For a Reason ft. Karan Aujla & Tania">
             <div class="cg-card-label">
               <span class="cg-card-tag">For a Reason</span>
               <h4>Karan Aujla &amp; Tania</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="6">
-            <img src="images/aura-world-tour.jpg" alt="Aura World Tour Artwork">
+          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="6">
+            <img loading="lazy" decoding="async" src="images/aura-world-tour.jpg" alt="Aura World Tour Artwork">
             <div class="cg-card-label">
               <span class="cg-card-tag">Tour Artwork</span>
               <h4>Aura World Tour</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="7">
-            <img src="images/diljit-aura.jpg" alt="Diljit Dosanjh White Portrait">
+          <div class="cg-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="7">
+            <img loading="lazy" decoding="async" src="images/diljit-aura.jpg" alt="Diljit Dosanjh White Portrait">
             <div class="cg-card-label">
               <span class="cg-card-tag">Portraits &amp; Commissions</span>
               <h4>Diljit Dosanjh</h4>
             </div>
           </div>
-          <div class="cg-card" data-index="8">
-            <video src="images/keerat-hoshiar.mp4" playsinline loop muted></video>
+          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="8">
+            <video src="images/keerat-hoshiar.mp4" playsinline loop muted preload="metadata"></video>
             <div class="cg-card-label">
               <span class="cg-card-tag">Music Video Art</span>
               <h4>Keerat &amp; Hoshiar</h4>
@@ -233,154 +232,12 @@
           </div>
         </div>
       </div>
-      <p class="cg-hint"
-        style="text-align: center; margin-top: 40px; opacity: 0.4; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">
-        Scroll or drag to rotate</p>
+      <p class="cg-hint">Use previous/next, arrow keys, scroll, or drag to rotate</p>
+      <div class="gallery-controls" aria-label="Gallery controls">
+        <button type="button" class="gallery-control" data-gallery-control="prev">Previous</button>
+        <button type="button" class="gallery-control" data-gallery-control="next">Next</button>
+      </div>
 
-      <script>
-        (function () {
-          const gallery = document.getElementById('circularGallery');
-          const scene = document.getElementById('cgScene');
-          const cards = scene.querySelectorAll('.cg-card');
-          const N = cards.length;
-          const angleStep = 360 / N;
-
-          // radius scales with container width (increased for more spacing)
-          function getRadius() {
-            const w = gallery.offsetWidth;
-            return Math.max(320, Math.min(520, w * 0.42));
-          }
-
-          let currentAngle = 0;
-          let targetAngle = 0;
-          let autoSpeed = 0.05;   // deg/frame (further reduced speed)
-          let dragging = false;
-          let lastX = 0;
-          let dragDelta = 0;
-          let paused = false;
-          let raf;
-          let galleryInView = false;
-
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              galleryInView = entry.isIntersecting;
-            });
-          }, { threshold: 0.1 });
-          observer.observe(document.getElementById('portfolio'));
-
-          function positionCards() {
-            const r = getRadius();
-            let maxDepth = -1;
-            let frontIndex = -1;
-            const cardData = [];
-
-            cards.forEach((card, i) => {
-              const a = (i * angleStep + currentAngle) * Math.PI / 180;
-              const x = Math.sin(a) * r;
-              const z = Math.cos(a) * r;
-              const depth = (z + r) / (2 * r);
-              if (depth > maxDepth) { maxDepth = depth; frontIndex = i; }
-              cardData.push({ x, z, depth });
-            });
-
-            cards.forEach((card, i) => {
-              const data = cardData[i];
-              const scale = 0.72 + 0.28 * data.depth;
-              const opacity = 0.38 + 0.62 * data.depth;
-              const zIndex = Math.round(data.depth * 100);
-              const isFront = (i === frontIndex && data.depth > 0.88);
-
-              card.style.transform = `translateX(${data.x}px) translateZ(${data.z}px) scale(${scale})`;
-              card.style.opacity = opacity;
-              card.style.zIndex = zIndex;
-              card.classList.toggle('cg-card--active', isFront);
-
-              const vid = card.querySelector('video');
-              if (vid) {
-                // Fade volume based on depth (from 0.80 to 0.95)
-                let targetVol = (data.depth - 0.80) / (0.95 - 0.80);
-                targetVol = Math.max(0, Math.min(1, targetVol));
-
-                // Smooth easing curve for natural audio fade
-                vid.volume = targetVol * targetVol;
-
-                if (targetVol > 0.01 && galleryInView) {
-                  if (vid.paused) vid.play().catch(() => { });
-                } else {
-                  if (!vid.paused) vid.pause();
-                }
-              }
-            });
-          }
-
-          function lerp(a, b, t) { return a + (b - a) * t; }
-
-          function tick() {
-            if (!dragging && !paused) targetAngle += autoSpeed;
-            currentAngle = lerp(currentAngle, targetAngle, 0.07);
-            positionCards();
-            raf = requestAnimationFrame(tick);
-          }
-
-          // ── hover pause ──
-          gallery.addEventListener('mouseenter', () => paused = true);
-          gallery.addEventListener('mouseleave', () => { paused = false; });
-
-          // ── drag (mouse) ──
-          gallery.addEventListener('mousedown', e => {
-            dragging = true;
-            lastX = e.clientX;
-            dragDelta = 0;
-            gallery.style.cursor = 'grabbing';
-          });
-          window.addEventListener('mousemove', e => {
-            if (!dragging) return;
-            dragDelta = e.clientX - lastX;
-            targetAngle += dragDelta * 0.35;
-            lastX = e.clientX;
-          });
-          window.addEventListener('mouseup', () => {
-            dragging = false;
-            gallery.style.cursor = 'grab';
-          });
-
-          // ── drag (touch) ──
-          let lastY = 0;
-          gallery.addEventListener('touchstart', e => {
-            lastX = e.touches[0].clientX;
-            lastY = e.touches[0].clientY;
-            paused = true;
-          }, { passive: true });
-          gallery.addEventListener('touchmove', e => {
-            const clientX = e.touches[0].clientX;
-            const clientY = e.touches[0].clientY;
-            const dx = clientX - lastX;
-            const dy = clientY - lastY;
-
-            // If the movement is primarily horizontal, rotate and block scroll
-            if (Math.abs(dx) > Math.abs(dy)) {
-              if (e.cancelable) e.preventDefault();
-              targetAngle += dx * 0.45;
-            }
-
-            lastX = clientX;
-            lastY = clientY;
-          }, { passive: false });
-          gallery.addEventListener('touchend', () => { paused = false; });
-
-          // ── scroll inside gallery ──
-          gallery.addEventListener('wheel', e => {
-            e.preventDefault();
-            targetAngle += e.deltaY * 0.18;
-          }, { passive: false });
-
-          // ── resize reposition ──
-          window.addEventListener('resize', positionCards);
-
-          positionCards();
-          tick();
-        })();
-      </script>
     </div>
   </section>
   <!-- ═══════════════ EXPAND CARDS SHOWCASE ═══════════════ -->
@@ -388,14 +245,14 @@
     <div class="container">
       <div class="expand-header reveal">
         <span class="section-label">Gallery Spotlight</span>
-        <h2 class="section-heading">Hover to <em>explore</em></h2>
-        <p>Glide over each piece to reveal the full artwork — from music video art to cinematic portraits.</p>
+        <h2 class="section-heading">Focus or tap to <em>explore</em></h2>
+        <p>Hover, focus, or tap each piece to reveal the full artwork — from music video art to cinematic portraits.</p>
       </div>
     </div>
     <div class="expand-cards-container reveal reveal-delay-1">
       <div class="expand-cards" id="expandCards">
-        <div class="expand-card active" data-index="1">
-          <img src="images/diljit-lightning.jpg" alt="Diljit Dosanjh — Lightning">
+        <div class="expand-card active" tabindex="0" role="button" data-category="portraits-commissions" data-index="1">
+          <img loading="lazy" decoding="async" src="images/diljit-lightning.jpg" alt="Diljit Dosanjh — Lightning">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -403,8 +260,8 @@
             <h4>Diljit Dosanjh</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="2">
-          <img src="images/diljit-singing.jpg" alt="Diljit Dosanjh — Singing">
+        <div class="expand-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="2">
+          <img loading="lazy" decoding="async" src="images/diljit-singing.jpg" alt="Diljit Dosanjh — Singing">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -412,8 +269,8 @@
             <h4>Diljit — Live</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="3">
-          <img src="images/nimrat-portrait.jpg" alt="Nimrat Khaira — Portrait">
+        <div class="expand-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="3">
+          <img loading="lazy" decoding="async" src="images/nimrat-portrait.jpg" alt="Nimrat Khaira — Portrait">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -421,8 +278,8 @@
             <h4>Nimrat Khaira</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="4">
-          <img src="images/divine-journey.jpg" alt="The Divine Journey">
+        <div class="expand-card" tabindex="0" role="button" data-category="devotional-historical" data-index="4">
+          <img loading="lazy" decoding="async" src="images/divine-journey.jpg" alt="The Divine Journey">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -430,8 +287,8 @@
             <h4>The Divine Journey</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="5">
-          <img src="images/bollywood-collage.jpg" alt="Cinema Collage">
+        <div class="expand-card" tabindex="0" role="button" data-category="traditional-art" data-index="5">
+          <img loading="lazy" decoding="async" src="images/bollywood-collage.jpg" alt="Cinema Collage">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -439,8 +296,8 @@
             <h4>Cinema Collage</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="6">
-          <img src="images/aura-world-tour.jpg" alt="Aura World Tour">
+        <div class="expand-card" tabindex="0" role="button" data-category="music-video-art" data-index="6">
+          <img loading="lazy" decoding="async" src="images/aura-world-tour.jpg" alt="Aura World Tour">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -448,8 +305,8 @@
             <h4>Aura World Tour</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="7">
-          <img src="images/diljit-aura.jpg" alt="Diljit — Aura Portrait">
+        <div class="expand-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="7">
+          <img loading="lazy" decoding="async" src="images/diljit-aura.jpg" alt="Diljit — Aura Portrait">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -457,8 +314,8 @@
             <h4>Diljit — Aura</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="8">
-          <img src="images/sunflowers-balcony.jpg" alt="For a Reason — Karan Aujla">
+        <div class="expand-card" tabindex="0" role="button" data-category="music-video-art" data-index="8">
+          <img loading="lazy" decoding="async" src="images/sunflowers-balcony.jpg" alt="For a Reason — Karan Aujla">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -466,8 +323,8 @@
             <h4>For a Reason</h4>
           </div>
         </div>
-        <div class="expand-card" data-index="9">
-          <img src="images/ray-of-hope.jpg" alt="Ray of Hope">
+        <div class="expand-card" tabindex="0" role="button" data-category="traditional-art" data-index="9">
+          <img loading="lazy" decoding="async" src="images/ray-of-hope.jpg" alt="Ray of Hope">
           <div class="expand-card-glow"></div>
           <div class="expand-card-border-glow"></div>
           <div class="expand-card-overlay">
@@ -479,24 +336,6 @@
     </div>
   </section>
 
-  <script>
-  (function() {
-    const container = document.getElementById('expandCards');
-    if (!container) return;
-    const cards = container.querySelectorAll('.expand-card');
-
-    // Touch/mobile fallback: click to expand
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) {
-      cards.forEach(card => {
-        card.addEventListener('click', () => {
-          cards.forEach(c => c.classList.remove('active'));
-          card.classList.add('active');
-        });
-      });
-    }
-  })();
-  </script>
   <!-- ═══════════════ COLLABORATIONS ═══════════════ -->
   <section class="collaborations" id="collaborations">
     <div class="container">
@@ -509,7 +348,7 @@
       <div class="collab-grid">
         <div class="collab-card reveal reveal-delay-1">
           <div class="collab-card-image">
-            <img src="images/collab-nimrat.jpg" alt="Nimrat Khaira">
+            <img loading="lazy" decoding="async" src="images/collab-nimrat.jpg" alt="Nimrat Khaira">
           </div>
           <div class="collab-card-content">
             <div class="collab-icon">
@@ -528,7 +367,7 @@
 
         <div class="collab-card reveal reveal-delay-2">
           <div class="collab-card-image">
-            <img src="images/collab-imtiaz.jpg" alt="Imtiaz Ali">
+            <img loading="lazy" decoding="async" src="images/collab-imtiaz.jpg" alt="Imtiaz Ali">
           </div>
           <div class="collab-card-content">
             <div class="collab-icon">
@@ -546,7 +385,7 @@
 
         <div class="collab-card reveal reveal-delay-3">
           <div class="collab-card-image">
-            <img src="images/collab-diljit.jpg" alt="Team Diljit">
+            <img loading="lazy" decoding="async" src="images/collab-diljit.jpg" alt="Team Diljit">
           </div>
           <div class="collab-card-content">
             <div class="collab-icon">
@@ -564,8 +403,7 @@
 
         <div class="collab-card reveal reveal-delay-4">
           <div class="collab-card-image">
-            <video src="images/sheeshe-wangu.mp4" playsinline autoplay muted loop
-              style="width: 100%; height: 100%; object-fit: cover;"></video>
+            <video src="images/sheeshe-wangu.mp4" playsinline autoplay muted loop preload="metadata" class="media-fill"></video>
           </div>
           <div class="collab-card-content">
             <div class="collab-icon">
@@ -583,7 +421,7 @@
 
         <div class="collab-card reveal reveal-delay-1">
           <div class="collab-card-image">
-            <img src="images/divine-journey.jpg" alt="Destiny">
+            <img loading="lazy" decoding="async" src="images/divine-journey.jpg" alt="Destiny">
           </div>
           <div class="collab-card-content">
             <div class="collab-icon">
@@ -599,7 +437,7 @@
           </div>
         </div> <!-- Closes .collab-card -->
       </div> <!-- Closes .collab-grid -->
-      <div style="text-align: center; margin-top: 48px;" class="reveal reveal-delay-2">
+      <div class="collab-more reveal reveal-delay-2">
         <a href="collaborations.html" class="btn-outline">View Appreciation &amp; Feedback</a>
       </div>
     </div> <!-- Closes .container -->
@@ -819,21 +657,24 @@
         <div class="contact-divider"></div>
 
         <!-- Contact form -->
-        <form class="contact-form" name="contact" onsubmit="return false;">
+        <form class="contact-form" name="contact" action="mailto:hello@example.com" method="post" enctype="text/plain">
           <div class="form-row">
             <div class="form-field">
-              <input type="text" id="contactName" name="name" placeholder="Your name" required autocomplete="off">
+              <label for="contactName">Your name</label>
+              <input type="text" id="contactName" name="name" placeholder="Your name" required autocomplete="name">
             </div>
             <div class="form-field">
-              <input type="email" id="contactEmail" name="email" placeholder="Your email" required autocomplete="off">
+              <label for="contactEmail">Your email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="Your email" required autocomplete="email">
             </div>
           </div>
           <div class="form-field">
+            <label for="contactProject">Type of project</label>
             <input type="text" id="contactProject" name="project" placeholder="Type of project" autocomplete="off">
           </div>
           <div class="form-field">
-            <textarea id="contactMessage" name="message" placeholder="Tell me about your vision…" rows="4"
-              required></textarea>
+            <label for="contactMessage">Tell me about your vision</label>
+            <textarea id="contactMessage" name="message" placeholder="Tell me about your vision…" rows="4" required></textarea>
           </div>
           <button type="submit" class="btn-primary contact-submit">
             <span>Send Message</span>
@@ -851,6 +692,8 @@
     </div>
   </section>
 
+</main>
+
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer class="footer">
     <div class="container">
@@ -866,6 +709,21 @@
       </div>
     </div>
   </footer>
+
+
+  <!-- ═══════════════ PORTFOLIO LIGHTBOX ═══════════════ -->
+  <div class="portfolio-lightbox" id="portfolioLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" aria-hidden="true">
+    <div class="portfolio-lightbox-backdrop" data-lightbox-close></div>
+    <div class="portfolio-lightbox-panel" role="document">
+      <button type="button" class="portfolio-lightbox-close" data-lightbox-close aria-label="Close artwork preview">×</button>
+      <div class="portfolio-lightbox-media" id="lightboxMedia"></div>
+      <div class="portfolio-lightbox-copy">
+        <span class="portfolio-lightbox-tag" id="lightboxTag">Selected Work</span>
+        <h2 id="lightboxTitle">Artwork preview</h2>
+        <p id="lightboxDescription">A closer look at this portfolio piece.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════════ SCRIPTS ═══════════════ -->
   <script src="script.js"></script>
