@@ -13,17 +13,14 @@
   <meta property="og:title" content="Komal Panesar — Visual Designer & Illustrator">
   <meta property="og:description" content="Bold visuals. Warm stories. Unforgettable design.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/art-overyou-logo.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="images/art-overyou-logo.jpg">
-  <link rel="icon" href="images/art-overyou-logo.jpg">
-  <link rel="apple-touch-icon" href="images/art-overyou-logo.jpg">
   <meta name="theme-color" content="#0A0A0A">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- Skip to main content for screen readers -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
@@ -35,23 +32,41 @@
   <!-- ═══════════════ NAVIGATION ═══════════════ -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <div class="nav-brand">
-        <a href="#hero" class="nav-logo">Komal Panesar<span>.</span></a>
-        <a href="https://www.instagram.com/art_overyou" target="_blank" rel="noopener" class="nav-handle">@art_overyou</a>
+      <div class="nav-brand" style="display: flex; flex-direction: column;">
+        <a href="#hero" class="nav-logo" style="line-height: 1.1;">Komal Panesar<span>.</span></a>
+        <a href="https://www.instagram.com/art_overyou" target="_blank" rel="noopener" class="nav-handle"
+          style="font-size: 0.75rem; color: var(--gold); text-decoration: none; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.3s ease;"
+          onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">@art_overyou</a>
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#portfolio" class="nav-link">Work</a></li>
-        <li><a href="#collaborations" class="nav-link">Collabs</a></li>
-        <li><a href="#latest-work" class="nav-link">Latest</a></li>
+        <li><a href="cover-art.html" class="nav-link">Cover Art</a></li>
         <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#contact" class="nav-link">Say Hello</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right-mobile">
+        <div class="nav-social-icons">
+          <a href="https://www.instagram.com/art_overyou" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a href="mailto:art.over.uu@gmail.com" aria-label="Email" class="nav-social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <main id="main-content">
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero" id="hero">
@@ -74,8 +89,10 @@
         </a>
         <a href="#contact" class="btn-outline">Let's Talk</a>
       </div>
-      <div class="hero-logo-wrap">
-        <img src="images/art-overyou-logo.jpg" alt="Art OverYou by K.Panesar" class="footer-logo hero-logo" width="140" height="140" decoding="async">
+      <div style="margin-top: 60px; text-align: left; animation: fadeInUp 1s ease 1s forwards; opacity: 0;">
+        <img src="images/art-overyou-logo.jpg" alt="Art OverYou by K.Panesar brand logo" class="footer-logo"
+          width="140" height="auto" loading="eager"
+          style="max-width: 140px; margin: 0; filter: invert(100%) sepia(100%) saturate(350%) hue-rotate(345deg) brightness(85%) contrast(120%); mix-blend-mode: screen;">
       </div>
     </div>
     <div class="hero-scroll-indicator">
@@ -85,13 +102,13 @@
   </section>
 
   <!-- ═══════════════ ABOUT ═══════════════ -->
-  <main id="mainContent">
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
         <div class="about-visual reveal">
           <div class="about-image-wrap">
-            <img decoding="async" src="images/komal-logo.jpg" alt="Komal Panesar — Visual Designer">
+            <img src="images/komal-logo.jpg" alt="Komal Panesar — Visual Designer and illustrator portrait"
+              width="600" height="600" loading="lazy">
             <div class="about-image-frame"></div>
           </div>
           <div class="about-stats">
@@ -132,6 +149,7 @@
             <span class="skill-tag">Murals</span>
             <span class="skill-tag">Typography</span>
             <span class="skill-tag">Art Direction</span>
+            <span class="skill-tag">Coverart Artist</span>
           </div>
         </div>
       </div>
@@ -158,73 +176,87 @@
       </div>
 
       <!-- ── Featured Project Card ── -->
-      <div class="featured-project reveal reveal-delay-1">
-        <span class="section-label featured-project-label">Featured Series</span>
-        <h3>Safar-e-Shahadat</h3>
-        <p>A 30-day illustrated series documenting the journey of Sikh Sahibzaade — one artwork per day through December. History told through art.</p>
+      <div class="featured-project reveal reveal-delay-1"
+        style="margin-bottom: 48px; background: #161616; border-left: 4px solid #C8A96E; padding: 40px 44px; border-radius: 4px;">
+        <span class="section-label" style="margin-bottom: 12px; display: block;">Featured Series</span>
+        <h3
+          style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: #F0ECE4; margin-bottom: 16px; line-height: 1.2;">
+          Safar-e-Shahadat</h3>
+        <p style="color: #A8A29E; font-size: 1.05rem; line-height: 1.7; max-width: 680px;">A 30-day illustrated series
+          documenting the journey of Sikh Sahibzaade — one artwork per day through December. History told through art.
+        </p>
       </div>
 
       <!-- ── Circular 3D Gallery ── -->
-      <div class="circular-gallery reveal reveal-delay-2" id="circularGallery" tabindex="0" aria-label="Rotating portfolio gallery">
+      <div class="circular-gallery reveal reveal-delay-2" id="circularGallery">
         <div class="cg-scene" id="cgScene">
-          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="0">
-            <video src="images/sheeshe-wangu.mp4" playsinline loop muted preload="metadata"></video>
+          <div class="cg-card" data-index="0">
+            <video src="images/sheeshe-wangu.mp4" playsinline loop preload="metadata"
+              aria-label="Sheeshe Wangu music video artwork animation"></video>
             <div class="cg-card-label">
               <span class="cg-card-tag">Music Video Art</span>
               <h4>Sheeshe Wangu</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="devotional-historical" data-index="1">
-            <img loading="lazy" decoding="async" src="images/divine-journey.jpg" alt="The Divine Journey">
+          <div class="cg-card" data-index="1">
+            <img src="images/divine-journey.jpg" alt="The Divine Journey - Devotional artwork depicting spiritual journey"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">Devotional &amp; Historical</span>
               <h4>The Divine Journey</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="traditional-art" data-index="2">
-            <img loading="lazy" decoding="async" src="images/bollywood-collage.jpg" alt="Cinema Collage">
+          <div class="cg-card" data-index="2">
+            <img src="images/bollywood-collage.jpg" alt="Cinema Collage - Bollywood themed artistic collage"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">Fine Art</span>
               <h4>Cinema Collage</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="traditional-art" data-index="3">
-            <img loading="lazy" decoding="async" src="images/ray-of-hope.jpg" alt="Ray of Hope">
+          <div class="cg-card" data-index="3">
+            <img src="images/ray-of-hope.jpg" alt="Ray of Hope - Traditional pencil artwork"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">Traditional Art</span>
               <h4>Ray of Hope</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="book-illustration" data-index="4">
-            <img loading="lazy" decoding="async" src="images/space-traveler.jpg" alt="Space Traveler">
+          <div class="cg-card" data-index="4">
+            <img src="images/space-traveler.jpg" alt="Space Traveler - Futuristic illustration"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">Illustration</span>
               <h4>Space Traveler</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="5">
-            <img loading="lazy" decoding="async" src="images/sunflowers-balcony.jpg" alt="For a Reason ft. Karan Aujla & Tania">
+          <div class="cg-card" data-index="5">
+            <img src="images/sunflowers-balcony.jpg" alt="For a Reason - Music artwork featuring Karan Aujla and Tania with sunflowers"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">For a Reason</span>
               <h4>Karan Aujla &amp; Tania</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="6">
-            <img loading="lazy" decoding="async" src="images/aura-world-tour.jpg" alt="Aura World Tour Artwork">
+          <div class="cg-card" data-index="6">
+            <img src="images/aura-world-tour.jpg" alt="Aura World Tour official artwork for Diljit Dosanjh"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">Tour Artwork</span>
               <h4>Aura World Tour</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="7">
-            <img loading="lazy" decoding="async" src="images/diljit-aura.jpg" alt="Diljit Dosanjh White Portrait">
+          <div class="cg-card" data-index="7">
+            <img src="images/diljit-aura.jpg" alt="Diljit Dosanjh portrait in white theme"
+              width="500" height="700" loading="lazy">
             <div class="cg-card-label">
               <span class="cg-card-tag">Portraits &amp; Commissions</span>
               <h4>Diljit Dosanjh</h4>
             </div>
           </div>
-          <div class="cg-card" tabindex="0" role="button" data-category="music-video-art" data-index="8">
-            <video src="images/keerat-hoshiar.mp4" playsinline loop muted preload="metadata"></video>
+          <div class="cg-card" data-index="8">
+            <video src="images/keerat-hoshiar.mp4" playsinline loop preload="metadata"
+              aria-label="Keerat and Hoshiar music video artwork animation"></video>
             <div class="cg-card-label">
               <span class="cg-card-tag">Music Video Art</span>
               <h4>Keerat &amp; Hoshiar</h4>
@@ -232,217 +264,156 @@
           </div>
         </div>
       </div>
-      <p class="cg-hint">Use previous/next, arrow keys, scroll, or drag to rotate</p>
-      <div class="gallery-controls" aria-label="Gallery controls">
-        <button type="button" class="gallery-control" data-gallery-control="prev">Previous</button>
-        <button type="button" class="gallery-control" data-gallery-control="next">Next</button>
-      </div>
+      <p class="cg-hint"
+        style="text-align: center; margin-top: 40px; opacity: 0.4; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">
+        Scroll or drag to rotate</p>
 
+      <script>
+        (function () {
+          const gallery = document.getElementById('circularGallery');
+          const scene = document.getElementById('cgScene');
+          const cards = scene.querySelectorAll('.cg-card');
+          const N = cards.length;
+          const angleStep = 360 / N;
+
+          // radius scales with container width (increased for more spacing)
+          function getRadius() {
+            const w = gallery.offsetWidth;
+            return Math.max(320, Math.min(520, w * 0.42));
+          }
+
+          let currentAngle = 0;
+          let targetAngle = 0;
+          let autoSpeed = 0.05;   // deg/frame (further reduced speed)
+          let dragging = false;
+          let lastX = 0;
+          let dragDelta = 0;
+          let paused = false;
+          let raf;
+          let galleryInView = false;
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              galleryInView = entry.isIntersecting;
+            });
+          }, { threshold: 0.1 });
+          observer.observe(document.getElementById('portfolio'));
+
+          function positionCards() {
+            const r = getRadius();
+            let maxDepth = -1;
+            let frontIndex = -1;
+            const cardData = [];
+
+            cards.forEach((card, i) => {
+              const a = (i * angleStep + currentAngle) * Math.PI / 180;
+              const x = Math.sin(a) * r;
+              const z = Math.cos(a) * r;
+              const depth = (z + r) / (2 * r);
+              if (depth > maxDepth) { maxDepth = depth; frontIndex = i; }
+              cardData.push({ x, z, depth });
+            });
+
+            cards.forEach((card, i) => {
+              const data = cardData[i];
+              const scale = 0.72 + 0.28 * data.depth;
+              const opacity = 0.38 + 0.62 * data.depth;
+              const zIndex = Math.round(data.depth * 100);
+              const isFront = (i === frontIndex && data.depth > 0.88);
+
+              card.style.transform = `translateX(${data.x}px) translateZ(${data.z}px) scale(${scale})`;
+              card.style.opacity = opacity;
+              card.style.zIndex = zIndex;
+              card.classList.toggle('cg-card--active', isFront);
+
+              const vid = card.querySelector('video');
+              if (vid) {
+                // Fade volume based on depth (from 0.80 to 0.95)
+                let targetVol = (data.depth - 0.80) / (0.95 - 0.80);
+                targetVol = Math.max(0, Math.min(1, targetVol));
+
+                // Smooth easing curve for natural audio fade
+                vid.volume = targetVol * targetVol;
+
+                if (targetVol > 0.01 && galleryInView) {
+                  if (vid.paused) vid.play().catch(() => { });
+                } else {
+                  if (!vid.paused) vid.pause();
+                }
+              }
+            });
+          }
+
+          function lerp(a, b, t) { return a + (b - a) * t; }
+
+          function tick() {
+            if (!dragging && !paused) targetAngle += autoSpeed;
+            currentAngle = lerp(currentAngle, targetAngle, 0.07);
+            positionCards();
+            raf = requestAnimationFrame(tick);
+          }
+
+          // ── hover pause ──
+          gallery.addEventListener('mouseenter', () => paused = true);
+          gallery.addEventListener('mouseleave', () => { paused = false; });
+
+          // ── drag (mouse) ──
+          gallery.addEventListener('mousedown', e => {
+            dragging = true;
+            lastX = e.clientX;
+            dragDelta = 0;
+            gallery.style.cursor = 'grabbing';
+          });
+          window.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            dragDelta = e.clientX - lastX;
+            targetAngle += dragDelta * 0.35;
+            lastX = e.clientX;
+          });
+          window.addEventListener('mouseup', () => {
+            dragging = false;
+            gallery.style.cursor = 'grab';
+          });
+
+          // ── drag (touch) ──
+          let lastY = 0;
+          gallery.addEventListener('touchstart', e => {
+            lastX = e.touches[0].clientX;
+            lastY = e.touches[0].clientY;
+            paused = true;
+          }, { passive: true });
+          gallery.addEventListener('touchmove', e => {
+            const clientX = e.touches[0].clientX;
+            const clientY = e.touches[0].clientY;
+            const dx = clientX - lastX;
+            const dy = clientY - lastY;
+
+            // If the movement is primarily horizontal, rotate and block scroll
+            if (Math.abs(dx) > Math.abs(dy)) {
+              if (e.cancelable) e.preventDefault();
+              targetAngle += dx * 0.45;
+            }
+
+            lastX = clientX;
+            lastY = clientY;
+          }, { passive: false });
+          gallery.addEventListener('touchend', () => { paused = false; });
+
+          // ── scroll inside gallery ──
+          gallery.addEventListener('wheel', e => {
+            e.preventDefault();
+            targetAngle += e.deltaY * 0.18;
+          }, { passive: false });
+
+          // ── resize reposition ──
+          window.addEventListener('resize', positionCards);
+
+          positionCards();
+          tick();
+        })();
+      </script>
     </div>
   </section>
-  <!-- ═══════════════ EXPAND CARDS SHOWCASE ═══════════════ -->
-  <section class="expand-showcase" id="expandShowcase">
-    <div class="container">
-      <div class="expand-header reveal">
-        <span class="section-label">Gallery Spotlight</span>
-        <h2 class="section-heading">Focus or tap to <em>explore</em></h2>
-        <p>Hover, focus, or tap each piece to reveal the full artwork — from music video art to cinematic portraits.</p>
-      </div>
-    </div>
-    <div class="expand-cards-container reveal reveal-delay-1">
-      <div class="expand-cards" id="expandCards">
-        <div class="expand-card active" tabindex="0" role="button" data-category="portraits-commissions" data-index="1">
-          <img loading="lazy" decoding="async" src="images/diljit-lightning.jpg" alt="Diljit Dosanjh — Lightning">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Artist Artwork</span>
-            <h4>Diljit Dosanjh</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="2">
-          <img loading="lazy" decoding="async" src="images/diljit-singing.jpg" alt="Diljit Dosanjh — Singing">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Portrait</span>
-            <h4>Diljit — Live</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="3">
-          <img loading="lazy" decoding="async" src="images/nimrat-portrait.jpg" alt="Nimrat Khaira — Portrait">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Collaboration</span>
-            <h4>Nimrat Khaira</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="devotional-historical" data-index="4">
-          <img loading="lazy" decoding="async" src="images/divine-journey.jpg" alt="The Divine Journey">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Devotional</span>
-            <h4>The Divine Journey</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="traditional-art" data-index="5">
-          <img loading="lazy" decoding="async" src="images/bollywood-collage.jpg" alt="Cinema Collage">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Fine Art</span>
-            <h4>Cinema Collage</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="music-video-art" data-index="6">
-          <img loading="lazy" decoding="async" src="images/aura-world-tour.jpg" alt="Aura World Tour">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Tour Artwork</span>
-            <h4>Aura World Tour</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="portraits-commissions" data-index="7">
-          <img loading="lazy" decoding="async" src="images/diljit-aura.jpg" alt="Diljit — Aura Portrait">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Portraits</span>
-            <h4>Diljit — Aura</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="music-video-art" data-index="8">
-          <img loading="lazy" decoding="async" src="images/sunflowers-balcony.jpg" alt="For a Reason — Karan Aujla">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Music Art</span>
-            <h4>For a Reason</h4>
-          </div>
-        </div>
-        <div class="expand-card" tabindex="0" role="button" data-category="traditional-art" data-index="9">
-          <img loading="lazy" decoding="async" src="images/ray-of-hope.jpg" alt="Ray of Hope">
-          <div class="expand-card-glow"></div>
-          <div class="expand-card-border-glow"></div>
-          <div class="expand-card-overlay">
-            <span class="expand-card-tag">Traditional Art</span>
-            <h4>Ray of Hope</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ COLLABORATIONS ═══════════════ -->
-  <section class="collaborations" id="collaborations">
-    <div class="container">
-      <div class="collab-header reveal">
-        <span class="section-label">Collaborations</span>
-        <h2 class="section-heading">People I've <em>created</em> with</h2>
-        <p>Every collaboration is a conversation — a blend of your vision and my visual instinct.</p>
-      </div>
-
-      <div class="collab-grid">
-        <div class="collab-card reveal reveal-delay-1">
-          <div class="collab-card-image">
-            <img loading="lazy" decoding="async" src="images/collab-nimrat.jpg" alt="Nimrat Khaira">
-          </div>
-          <div class="collab-card-content">
-            <div class="collab-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M9 18V5l12-2v13" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="16" r="3" />
-              </svg>
-            </div>
-            <span class="collab-type">Artist Collaboration</span>
-            <h4>Nimrat Khaira</h4>
-            <p>A vibrant collaboration with one of Punjab's most beloved voices — artwork that captures the warmth and
-              spirit behind the music.</p>
-          </div>
-        </div>
-
-        <div class="collab-card reveal reveal-delay-2">
-          <div class="collab-card-image">
-            <img loading="lazy" decoding="async" src="images/collab-imtiaz.jpg" alt="Imtiaz Ali">
-          </div>
-          <div class="collab-card-content">
-            <div class="collab-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M3 9h18M9 21V9" />
-              </svg>
-            </div>
-            <span class="collab-type">Featured Collaboration</span>
-            <h4>Imtiaz Ali</h4>
-            <p>Visual art created in collaboration with the celebrated filmmaker — a meeting of cinematic storytelling
-              and illustration.</p>
-          </div>
-        </div>
-
-        <div class="collab-card reveal reveal-delay-3">
-          <div class="collab-card-image">
-            <img loading="lazy" decoding="async" src="images/collab-diljit.jpg" alt="Team Diljit">
-          </div>
-          <div class="collab-card-content">
-            <div class="collab-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M8 12l3 3 5-5" />
-              </svg>
-            </div>
-            <span class="collab-type">Artist Artwork</span>
-            <h4>Team Diljit</h4>
-            <p>Official artwork created for Diljit Dosanjh — bold, iconic visuals that match the energy of one of
-              Punjab's biggest global stars.</p>
-          </div>
-        </div>
-
-        <div class="collab-card reveal reveal-delay-4">
-          <div class="collab-card-image">
-            <video src="images/sheeshe-wangu.mp4" playsinline autoplay muted loop preload="metadata" class="media-fill"></video>
-          </div>
-          <div class="collab-card-content">
-            <div class="collab-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
-            </div>
-            <span class="collab-type">Music Video Art</span>
-            <h4>Sheeshe Wangu</h4>
-            <p>Music video artwork for the iconic collaboration between Surinder Kaur and Diljit Jatt — a tribute
-              bridging generations of Punjabi music.</p>
-          </div>
-        </div>
-
-        <div class="collab-card reveal reveal-delay-1">
-          <div class="collab-card-image">
-            <img loading="lazy" decoding="async" src="images/divine-journey.jpg" alt="Destiny">
-          </div>
-          <div class="collab-card-content">
-            <div class="collab-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <polygon points="23 7 16 12 23 17 23 7" />
-                <rect x="1" y="5" width="15" height="14" rx="2" />
-              </svg>
-            </div>
-            <span class="collab-type">Music Video Poster</span>
-            <h4>Destiny</h4>
-            <p>Official music video poster for Bharat Gill — cinematic digital art that sets the visual tone for the
-              track.</p>
-          </div>
-        </div> <!-- Closes .collab-card -->
-      </div> <!-- Closes .collab-grid -->
-      <div class="collab-more reveal reveal-delay-2">
-        <a href="collaborations.html" class="btn-outline">View Appreciation &amp; Feedback</a>
-      </div>
-    </div> <!-- Closes .container -->
-  </section>
-
   <!-- ═══════════════ PROCESS ═══════════════ -->
   <section class="process" id="process">
     <div class="container">
@@ -657,32 +628,62 @@
         <div class="contact-divider"></div>
 
         <!-- Contact form -->
-        <form class="contact-form" name="contact" action="mailto:hello@example.com" method="post" enctype="text/plain">
+        <form class="contact-form" name="contact" id="contactForm" method="POST">
           <div class="form-row">
             <div class="form-field">
-              <label for="contactName">Your name</label>
-              <input type="text" id="contactName" name="name" placeholder="Your name" required autocomplete="name">
+              <label for="contactName" class="form-label">Your Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" required
+                autocomplete="name" aria-describedby="nameError">
+              <span class="form-error" id="nameError" role="alert"></span>
             </div>
             <div class="form-field">
-              <label for="contactEmail">Your email</label>
-              <input type="email" id="contactEmail" name="email" placeholder="Your email" required autocomplete="email">
+              <label for="contactEmail" class="form-label">Email Address</label>
+              <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required
+                autocomplete="email" aria-describedby="emailError">
+              <span class="form-error" id="emailError" role="alert"></span>
             </div>
           </div>
           <div class="form-field">
-            <label for="contactProject">Type of project</label>
-            <input type="text" id="contactProject" name="project" placeholder="Type of project" autocomplete="off">
+            <label for="contactProject" class="form-label">Project Type</label>
+            <select id="contactProject" name="project" required aria-describedby="projectError">
+              <option value="">Select a project type...</option>
+              <option value="music-art">Music Video Artwork</option>
+              <option value="portrait">Portrait Commission</option>
+              <option value="devotional">Devotional/Historical Art</option>
+              <option value="illustration">Illustration</option>
+              <option value="branding">Branding & Design</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="form-error" id="projectError" role="alert"></span>
           </div>
           <div class="form-field">
-            <label for="contactMessage">Tell me about your vision</label>
-            <textarea id="contactMessage" name="message" placeholder="Tell me about your vision…" rows="4" required></textarea>
+            <label for="contactMessage" class="form-label">Tell me about your vision</label>
+            <textarea id="contactMessage" name="message" placeholder="Describe your project, timeline, and vision..."
+              rows="5" required aria-describedby="messageError"></textarea>
+            <span class="form-error" id="messageError" role="alert"></span>
           </div>
-          <button type="submit" class="btn-primary contact-submit">
-            <span>Send Message</span>
-            <svg class="submit-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+          <button type="submit" class="btn-primary contact-submit" id="submitBtn">
+            <span class="btn-state btn-state-default">
+              <span>Send Message</span>
+              <svg class="submit-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+            <span class="btn-state btn-state-sending">
+              <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" opacity="0.25"/>
+                <path d="M12 2a10 10 0 0 1 10 10" opacity="0.75"/>
+              </svg>
+              <span>Sending...</span>
+            </span>
+            <span class="btn-state btn-state-success">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Message Sent!</span>
+            </span>
           </button>
+          <div class="form-feedback" role="status" aria-live="polite"></div>
         </form>
 
         <p class="commissions-note">
@@ -692,7 +693,8 @@
     </div>
   </section>
 
-</main>
+  </main>
+  <!-- END MAIN CONTENT -->
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer class="footer">
@@ -700,28 +702,68 @@
       <div class="footer-inner">
 
         <p class="footer-text">© 2026 Komal Panesar. Crafted with <span>♥</span> and way too much chai.</p>
-        <a href="#hero" class="footer-back-top">
-          Back to Top
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 19V5M5 12l7-7 7 7" />
-          </svg>
-        </a>
       </div>
     </div>
   </footer>
 
+  <!-- ═══════════════ FLOATING BUTTONS ═══════════════ -->
+  <div class="floating-buttons">
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </a>
+    <button class="chat-btn" id="chatBtn" aria-label="Contact us">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+        <path d="M7 9h10v2H7zm0-3h10v2H7z"/>
+      </svg>
+    </button>
+  </div>
 
-  <!-- ═══════════════ PORTFOLIO LIGHTBOX ═══════════════ -->
-  <div class="portfolio-lightbox" id="portfolioLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" aria-hidden="true">
-    <div class="portfolio-lightbox-backdrop" data-lightbox-close></div>
-    <div class="portfolio-lightbox-panel" role="document">
-      <button type="button" class="portfolio-lightbox-close" data-lightbox-close aria-label="Close artwork preview">×</button>
-      <div class="portfolio-lightbox-media" id="lightboxMedia"></div>
-      <div class="portfolio-lightbox-copy">
-        <span class="portfolio-lightbox-tag" id="lightboxTag">Selected Work</span>
-        <h2 id="lightboxTitle">Artwork preview</h2>
-        <p id="lightboxDescription">A closer look at this portfolio piece.</p>
+  <!-- ═══════════════ CHAT CONTACT MODAL ═══════════════ -->
+  <div class="chat-modal" id="chatModal">
+    <div class="chat-modal-content">
+      <div class="chat-modal-header">
+        <h4>Let's Talk</h4>
+        <button class="chat-modal-close" id="chatModalClose" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
+      <form class="chat-form" id="chatForm">
+        <div class="chat-form-field">
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="chat-form-field">
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="chat-form-field">
+          <textarea name="message" placeholder="Your Message..." rows="4" required></textarea>
+        </div>
+        <button type="submit" class="chat-form-submit" id="chatSubmitBtn">
+          <span class="btn-state btn-state-default">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </span>
+          <span class="btn-state btn-state-sending">
+            <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" opacity="0.25"/>
+              <path d="M12 2a10 10 0 0 1 10 10" opacity="0.75"/>
+            </svg>
+            <span>Sending...</span>
+          </span>
+          <span class="btn-state btn-state-success">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            <span>Message Sent!</span>
+          </span>
+        </button>
+      </form>
     </div>
   </div>
 
