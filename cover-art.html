@@ -191,13 +191,17 @@
 
   <!-- Drag Hint -->
   <div class="drag-hint" id="dragHint">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <svg class="hint-icon-desktop" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M5 9l4-4 4 4M5 15l4 4 4-4"/>
       <path d="M9 5v14"/>
       <path d="M15 9l4-4 4 4M15 15l4 4 4-4"/>
       <path d="M19 5v14"/>
     </svg>
-    <span>Drag to explore</span>
+    <svg class="hint-icon-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    <span class="hint-text-desktop">Drag to explore</span>
+    <span class="hint-text-mobile">Scroll to explore</span>
   </div>
 
   <script src="cover-art.js"></script>

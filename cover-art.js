@@ -12,6 +12,9 @@
 
   if (!viewport || !container) return;
 
+  // Detect mobile
+  const isMobile = () => window.innerWidth < 768;
+
   // State
   let x = 0;
   let y = 0;
@@ -20,10 +23,15 @@
   let isDragging = false;
   let startX = 0;
   let startY = 0;
+  let velocityY = 0;
+  let lastY = 0;
+  let lastTime = 0;
 
   // Smooth interpolation factor (lower = smoother)
   const lerp = 0.08;
   const dragLerp = 0.15;
+  const mobileLerp = 0.1;
+  const friction = 0.95;
 
   // Wrap function - infinite loop
   const wrap = (min, max, value) => {
@@ -41,21 +49,40 @@
   let rafId;
   const animate = () => {
     const dims = getDimensions();
+    const mobile = isMobile();
 
-    // Smooth lerp towards target
-    const currentLerp = isDragging ? dragLerp : lerp;
-    x += (targetX - x) * currentLerp;
-    y += (targetY - y) * currentLerp;
+    if (mobile) {
+      // Mobile: vertical only with momentum
+      if (!isDragging) {
+        targetY += velocityY;
+        velocityY *= friction;
+        if (Math.abs(velocityY) < 0.5) velocityY = 0;
+      }
 
-    // Wrap for infinite scroll
-    x = wrap(-dims.width / 2, 0, x);
-    y = wrap(-dims.height / 2, 0, y);
+      y += (targetY - y) * mobileLerp;
 
-    // Also wrap targets to prevent huge jumps
-    targetX = wrap(-dims.width / 2, 0, targetX);
-    targetY = wrap(-dims.height / 2, 0, targetY);
+      // Wrap for infinite vertical scroll
+      const gridHeight = dims.height / 4; // 4 grids
+      y = wrap(-gridHeight, 0, y);
+      targetY = wrap(-gridHeight, 0, targetY);
 
-    container.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      container.style.transform = `translate3d(0, ${y}px, 0)`;
+    } else {
+      // Desktop: free 2D drag
+      const currentLerp = isDragging ? dragLerp : lerp;
+      x += (targetX - x) * currentLerp;
+      y += (targetY - y) * currentLerp;
+
+      // Wrap for infinite scroll
+      x = wrap(-dims.width / 2, 0, x);
+      y = wrap(-dims.height / 2, 0, y);
+
+      // Also wrap targets to prevent huge jumps
+      targetX = wrap(-dims.width / 2, 0, targetX);
+      targetY = wrap(-dims.height / 2, 0, targetY);
+
+      container.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }
 
     rafId = requestAnimationFrame(animate);
   };
@@ -69,6 +96,9 @@
     const point = e.touches ? e.touches[0] : e;
     startX = point.clientX - targetX;
     startY = point.clientY - targetY;
+    lastY = point.clientY;
+    lastTime = Date.now();
+    velocityY = 0;
     viewport.style.cursor = 'grabbing';
     hideHint();
   };
@@ -79,8 +109,23 @@
     e.preventDefault();
 
     const point = e.touches ? e.touches[0] : e;
-    targetX = point.clientX - startX;
-    targetY = point.clientY - startY;
+    const now = Date.now();
+    const deltaTime = now - lastTime;
+
+    if (isMobile()) {
+      // Mobile: vertical only with velocity tracking
+      targetY = point.clientY - startY;
+      if (deltaTime > 0) {
+        velocityY = (point.clientY - lastY) / deltaTime * 16;
+      }
+    } else {
+      // Desktop: full 2D
+      targetX = point.clientX - startX;
+      targetY = point.clientY - startY;
+    }
+
+    lastY = point.clientY;
+    lastTime = now;
   };
 
   // Pointer up
@@ -93,9 +138,14 @@
   const onWheel = (e) => {
     e.preventDefault();
 
-    // Apply scroll with multiplier
-    targetY -= e.deltaY * 2.5;
-    targetX -= e.deltaX * 2.5;
+    if (isMobile()) {
+      // Mobile: vertical only
+      targetY -= e.deltaY * 2;
+    } else {
+      // Desktop: both axes
+      targetY -= e.deltaY * 2.5;
+      targetX -= e.deltaX * 2.5;
+    }
 
     hideHint();
   };

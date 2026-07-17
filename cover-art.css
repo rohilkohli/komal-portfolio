@@ -511,6 +511,17 @@ body::before {
   animation: hintDrag 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
+/* Show/hide icons and text based on screen size */
+.hint-icon-mobile,
+.hint-text-mobile {
+  display: none;
+}
+
+.hint-icon-desktop,
+.hint-text-desktop {
+  display: inline;
+}
+
 @keyframes hintDrag {
   0%, 100% { transform: translate(0, 0); }
   20% { transform: translate(5px, -3px); }
@@ -529,10 +540,10 @@ body::before {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   MOBILE STYLES
+   MOBILE STYLES - Premium Vertical Scroll
    ═══════════════════════════════════════════════════════════ */
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .back-btn {
     top: 16px;
     left: 16px;
@@ -556,33 +567,130 @@ body::before {
     font-size: 0.6rem;
   }
 
+  /* Single column layout for mobile */
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0;
+  }
+
   .gallery-grid {
-    gap: 14px;
-    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+    width: 100%;
   }
 
   .gallery-item {
-    width: 100px;
-    height: 150px;
-    border-radius: 6px;
+    width: calc(100vw - 48px);
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    margin-top: 0 !important;
   }
 
+  /* Remove masonry offset on mobile */
   .gallery-item:nth-child(even) {
-    margin-top: 40%;
+    margin-top: 0;
+  }
+
+  /* Premium card enhancements for mobile */
+  .gallery-item {
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .gallery-item.visible {
+    animation: mobileItemReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes mobileItemReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Staggered reveal delays for mobile */
+  .gallery-grid:first-child .gallery-item:nth-child(1).visible { animation-delay: 0.1s; }
+  .gallery-grid:first-child .gallery-item:nth-child(2).visible { animation-delay: 0.2s; }
+  .gallery-grid:first-child .gallery-item:nth-child(3).visible { animation-delay: 0.3s; }
+  .gallery-grid:first-child .gallery-item:nth-child(4).visible { animation-delay: 0.4s; }
+  .gallery-grid:first-child .gallery-item:nth-child(5).visible { animation-delay: 0.5s; }
+
+  /* Hide duplicate grids on mobile - only show first */
+  .gallery-grid:not(:first-child) {
+    display: none;
   }
 
   .gallery-item-overlay {
-    padding: 12px;
+    padding: 20px;
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.3) 40%,
+      transparent 70%
+    );
   }
 
   .gallery-item-title {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Active state for touch */
+  .gallery-item:active {
+    transform: scale(0.98);
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.5),
+      0 5px 20px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(200, 169, 110, 0.1);
   }
 
   .drag-hint {
-    bottom: 20px;
-    padding: 12px 20px;
+    bottom: 24px;
+    padding: 14px 24px;
     font-size: 0.65rem;
+  }
+
+  .drag-hint svg {
+    animation: hintScroll 2s ease-in-out infinite;
+  }
+
+  @keyframes hintScroll {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* Show mobile hint, hide desktop */
+  .hint-icon-desktop,
+  .hint-text-desktop {
+    display: none;
+  }
+
+  .hint-icon-mobile,
+  .hint-text-mobile {
+    display: inline;
   }
 }
 
